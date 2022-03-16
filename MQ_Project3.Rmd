@@ -28,7 +28,7 @@ skills_page <- read_html("https://brainstation.io/career-guides/data-science-res
 ```{r}
 skills_page 
 ```
-# Performing Web Scraping to fetch the skills:
+# Performing Web Scraping to fetch the skills using the node selector
 ```{r}
 
 skills_set1<- skills_page %>% html_nodes("ul:nth-child(4)") %>% html_elements("li")  %>% html_text2()
