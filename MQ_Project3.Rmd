@@ -74,14 +74,15 @@ vector1
 vector2
 ```
 
-
-```{r}
 # Start by reading a HTML page with read_html():
+```{r}
+
 
 softskills_page <- read_html("https://zety.com/blog/data-scientist-resume-example")
 
 ```
 
+# Scraping using node selector
 ```{r}
 
 skills_set3<- softskills_page %>% html_nodes("td:nth-child(1) > p > a") %>% html_text2()
@@ -89,6 +90,7 @@ skills_set3<- softskills_page %>% html_nodes("td:nth-child(1) > p > a") %>% html
 skills_set3[3:9]
 ```
 
+# Scraping using node selector
 ```{r}
 vector3 = c()
 
@@ -101,12 +103,12 @@ for (i in 3:9) {
 vector3
 ```
 
+# Combining the vectors
 ```{r}
 title_vector <- c(vector1, vector2, vector3)
 ```
 
-
-
+#Adding the values in the columns
 ```{r}
 indeed_jobs = c()
 # adding jobs to an empty vector 
