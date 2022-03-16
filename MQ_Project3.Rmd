@@ -28,7 +28,7 @@ skills_page <- read_html("https://brainstation.io/career-guides/data-science-res
 ```{r}
 skills_page 
 ```
-
+# Performing Web Scraping to fetch the skills:
 ```{r}
 
 skills_set1<- skills_page %>% html_nodes("ul:nth-child(4)") %>% html_elements("li")  %>% html_text2()
@@ -45,6 +45,7 @@ skills_set2[2:34]
 writeLines(skills_set1)
 ```
 
+# Trimming the extra spaces from the words in skill_set1
 ```{r}
 vector1 = c()
 
@@ -55,6 +56,8 @@ for (i in 6:19) {
 }
 ```
 
+
+# Trimming the extra spaces from the words in skill_set2
 ```{r}
 vector2 = c()
 
@@ -171,3 +174,20 @@ new_df = data.frame(skill_title = title_vector,
                 )
 new_df
 ```
+
+# Checking the working directory path and exporting data frame into a CSV file
+```{r}
+# Get working directory path
+path <- getwd()
+
+path
+
+```
+
+# Export file as csv to working directory.  
+```{r}
+
+write.csv(new_df, file.path(path, "skills_cleaned_data.csv"))
+
+```
+
