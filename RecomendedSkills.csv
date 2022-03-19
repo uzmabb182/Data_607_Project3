@@ -1,227 +1,227 @@
-Skill,RecommendationID,InJobSkills,,,,,,,,,,,,,,,,,
-C++,1,C++,,,,,,,,,,,,,,,,,
-Collaboration,1,Collaboration,,,,,,,,,,,,,,,,,
-Collaboration,7,Collaboration,,,,,,,,,,,,,,,,,
-Communication,1,Communication,,,,,,,,,,,,,,,,,
-Communication,2,Communication,,,,,,,,,,,,,,,,,
-Communication,3,Communication,,,,,,,,,,,,,,,,,
-Communication,4,Communication,,,,,,,,,,,,,,,,,
-Communication,5,Communication,,,,,,,,,,,,,,,,,
-Communication,6,Communication,,,,,,,,,,,,,,,,,
-Communication,7,Communication,,,,,,,,,,,,,,,,,
-Communication,8,Communication,,,,,,,,,,,,,,,,,
-Communication,11,Communication,,,,,,,,,,,,,,,,,
-Communication,12,Communication,,,,,,,,,,,,,,,,,
-Critical Thinking,1,Critical Thinking,,,,,,,,,,,,,,,,,
-Critical thinking,6,Critical Thinking,,,,,,,,,,,,,,,,,
-Critical thinking,7,Critical Thinking,,,,,,,,,,,,,,,,,
-Data analysis,1,Data analysis,,,,,,,,,,,,,,,,,
-Data Mining,4,Data mining,,,,,,,,,,,,,,,,,
-Data Mining,1,Data mining,,,,,,,,,,,,,,,,,
-Data modeling,3,Data modeling,,,,,,,,,,,,,,,,,
-Data modeling,1,Data modeling,,,,,,,,,,,,,,,,,
-Data Visualization,1,Data visualization,,,,,,,,,,,,,,,,,
-Data Visualization,2,Data visualization,,,,,,,,,,,,,,,,,
-Data Visualization,3,Data visualization,,,,,,,,,,,,,,,,,
-Data Visualization,5,Data visualization,,,,,,,,,,,,,,,,,
-Data visualization,7,Data visualization,,,,,,,,,,,,,,,,,
-Data Visualization,8,Data visualization,,,,,,,,,,,,,,,,,
-Data Visualization,9,Data visualization,,,,,,,,,,,,,,,,,
-Data Visualization,11,Data visualization,,,,,,,,,,,,,,,,,
-Data Wrangling,1,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,2,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,6,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,1,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,4,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,5,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,7,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,9,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,10,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,11,Data wrangling,,,,,,,,,,,,,,,,,
-Data Wrangling,11,Data wrangling,,,,,,,,,,,,,,,,,
-Hadoop,1,Hadoop,,,,,,,,,,,,,,,,,
-Hadoop,11,Hadoop,,,,,,,,,,,,,,,,,
-Hadoop,12,Hadoop,,,,,,,,,,,,,,,,,
-Hive,11,Hive,,,,,,,,,,,,,,,,,
-Java,1,Java,,,,,,,,,,,,,,,,,
-Java,9,Java,,,,,,,,,,,,,,,,,
-Machine Learning,1,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,2,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,3,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,4,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,5,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,6,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,7,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,9,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,10,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,11,Machine learning,,,,,,,,,,,,,,,,,
-Machine Learning,12,Machine learning,,,,,,,,,,,,,,,,,
-MATLAB,1,MATLAB,,,,,,,,,,,,,,,,,
-MATLAB,9,MATLAB,,,,,,,,,,,,,,,,,
-Microsoft Excel,1,Microsoft Excel,,,,,,,,,,,,,,,,,
-Microsoft Excel,8,Microsoft Excel,,,,,,,,,,,,,,,,,
-Microsoft Excel,9,Microsoft Excel,,,,,,,,,,,,,,,,,
-Microsoft Excel,10,Microsoft Excel,,,,,,,,,,,,,,,,,
-NoSQL,1,NoSQL,,,,,,,,,,,,,,,,,
-Problem Solving,1,Problem Solving,,,,,,,,,,,,,,,,,
-Problem Solving,4,Problem Solving,,,,,,,,,,,,,,,,,
-Problem Solving,5,Problem Solving,,,,,,,,,,,,,,,,,
-Problem Solving,6,Problem Solving,,,,,,,,,,,,,,,,,
-Problem Solving,7,Problem Solving,,,,,,,,,,,,,,,,,
-Programming,2,Programming,,,,,,,,,,,,,,,,,
-Programming,3,Programming,,,,,,,,,,,,,,,,,
-Programming,5,Programming,,,,,,,,,,,,,,,,,
-Programming,7,Programming,,,,,,,,,,,,,,,,,
-Programming,11,Programming,,,,,,,,,,,,,,,,,
-Programming,11,Programming,,,,,,,,,,,,,,,,,
-Python,1,Python,,,,,,,,,,,,,,,,,
-Python,4,Python,,,,,,,,,,,,,,,,,
-Python,8,Python,,,,,,,,,,,,,,,,,
-Python,9,Python,,,,,,,,,,,,,,,,,
-Python,10,Python,,,,,,,,,,,,,,,,,
-Python,12,Python,,,,,,,,,,,,,,,,,
-R,1,R,,,,,,,,,,,,,,,,,
-R,4,R,,,,,,,,,,,,,,,,,
-R,9,R,,,,,,,,,,,,,,,,,
-R,10,R,,,,,,,,,,,,,,,,,
-R,11,R,,,,,,,,,,,,,,,,,
-R,12,R,,,,,,,,,,,,,,,,,
-SAS,1,SAS,,,,,,,,,,,,,,,,,
-SAS,11,SAS,,,,,,,,,,,,,,,,,
-Scala,9,Scala,,,,,,,,,,,,,,,,,
-SQL,1,SQL,,,,,,,,,,,,,,,,,
-SQL,5,SQL,,,,,,,,,,,,,,,,,
-SQL,9,SQL,,,,,,,,,,,,,,,,,
-SQL,10,SQL,,,,,,,,,,,,,,,,,
-SQL,12,SQL,,,,,,,,,,,,,,,,,
-Statistics,9,Statistics,,,,,,,,,,,,,,,,,
-Statistics,1,Statistics,,,,,,,,,,,,,,,,,
-Statistics,3,Statistics,,,,,,,,,,,,,,,,,
-Statistics,6,Statistics,,,,,,,,,,,,,,,,,
-Statistics,8,Statistics,,,,,,,,,,,,,,,,,
-Tableau,1,Tableau,,,,,,,,,,,,,,,,,
-TensorFlow,1,TensorFlow,,,,,,,,,,,,,,,,,
-TensorFlow,9,TensorFlow,,,,,,,,,,,,,,,,,
-Adaptability,1,,,,,,,,,,,,,,,,,,
-Algorithms,1,,,,,,,,,,,,,,,,,,
-Algorithms,1,,,,,,,,,,,,,,,,,,
-cloud computing,1,,,,,,,,,,,,,,,,,,
-AmCharts,1,,,,,,,,,,,,,,,,,,
-Apache Spark,1,,,,,,,,,,,,,,,,,,
-Apache Spark,11,,,,,,,,,,,,,,,,,,
-Apache Spark,12,,,,,,,,,,,,,,,,,,
-AppEngine,1,,,,,,,,,,,,,,,,,,
-Artificial Intelligence,1,,,,,,,,,,,,,,,,,,
-Assertiveness,1,,,,,,,,,,,,,,,,,,
-Big Data,1,,,,,,,,,,,,,,,,,,
-Big Data,2,,,,,,,,,,,,,,,,,,
-Big Data,4,,,,,,,,,,,,,,,,,,
-Big Data,11,,,,,,,,,,,,,,,,,,
-Business Knowledge,1,,,,,,,,,,,,,,,,,,
-Business Knowledge,3,,,,,,,,,,,,,,,,,,
-Business Knowledge,5,,,,,,,,,,,,,,,,,,
-Business Knowledge,6,,,,,,,,,,,,,,,,,,
-Business Knowledge,7,,,,,,,,,,,,,,,,,,
-Business Knowledge,8,,,,,,,,,,,,,,,,,,
-Business Knowledge,11,,,,,,,,,,,,,,,,,,
-Business Knowledge,12,,,,,,,,,,,,,,,,,,
-Calculus,1,,,,,,,,,,,,,,,,,,
-Calculus,5,,,,,,,,,,,,,,,,,,
-Calculus,7,,,,,,,,,,,,,,,,,,
-Calculus,9,,,,,,,,,,,,,,,,,,
-Calculus,10,,,,,,,,,,,,,,,,,,
-cloud computing,9,,,,,,,,,,,,,,,,,,
-cloud computing,10,,,,,,,,,,,,,,,,,,
-Coding,6,,,,,,,,,,,,,,,,,,
-CouchDB,1,,,,,,,,,,,,,,,,,,
-Creativity,1,,,,,,,,,,,,,,,,,,
-Curiosity,1,,,,,,,,,,,,,,,,,,
-Curiosity,2,,,,,,,,,,,,,,,,,,
-Curiosity,3,,,,,,,,,,,,,,,,,,
-Curiosity,4,,,,,,,,,,,,,,,,,,
-Curiosity,5,,,,,,,,,,,,,,,,,,
-curiosity,6,,,,,,,,,,,,,,,,,,
-Curiosity,7,,,,,,,,,,,,,,,,,,
-Curiosity,12,,,,,,,,,,,,,,,,,,
-Customer Service,1,,,,,,,,,,,,,,,,,,
-Data Intuition,11,,,,,,,,,,,,,,,,,,
-Data Science Process,5,,,,,,,,,,,,,,,,,,
-Data Science Tools / Data Tools,1,,,,,,,,,,,,,,,,,,
-Data Structures and Algorithms,4,,,,,,,,,,,,,,,,,,
-Data Visualisation,4,,,,,,,,,,,,,,,,,,
-Data Visualisation,10,,,,,,,,,,,,,,,,,,
-Data Visualisation,12,,,,,,,,,,,,,,,,,,
-Database Management,1,,,,,,,,,,,,,,,,,,
-Database Management,9,,,,,,,,,,,,,,,,,,
-Database Management,10,,,,,,,,,,,,,,,,,,
-Decision Making,1,,,,,,,,,,,,,,,,,,
-Decision Trees,1,,,,,,,,,,,,,,,,,,
-Deep Learning,2,,,,,,,,,,,,,,,,,,
-Deep Learning,11,,,,,,,,,,,,,,,,,,
-DevOps,1,,,,,,,,,,,,,,,,,,
-DevOps,9,,,,,,,,,,,,,,,,,,
-Documenting,1,,,,,,,,,,,,,,,,,,
-Drawing Consensus,1,,,,,,,,,,,,,,,,,,
-ECL,1,,,,,,,,,,,,,,,,,,
-"ETL (Extract, Transform, and Load)",4,,,,,,,,,,,,,,,,,,
-Facilitating Meetings,1,,,,,,,,,,,,,,,,,,
-Flare,1,,,,,,,,,,,,,,,,,,
-Google Visualization API,1,,,,,,,,,,,,,,,,,,
-HBase,1,,,,,,,,,,,,,,,,,,
-High-Level Math,8,,,,,,,,,,,,,,,,,,
-Highcharts,1,,,,,,,,,,,,,,,,,,
-Innovation,1,,,,,,,,,,,,,,,,,,
-Interpreting Data,1,,,,,,,,,,,,,,,,,,
-js,1,,,,,,,,,,,,,,,,,,
-Julia,9,,,,,,,,,,,,,,,,,,
-Leadership,1,,,,,,,,,,,,,,,,,,
-Linear Algebra,1,,,,,,,,,,,,,,,,,,
-Linear Algebra,5,,,,,,,,,,,,,,,,,,
-Linear Algebra,7,,,,,,,,,,,,,,,,,,
-Linear Algebra,9,,,,,,,,,,,,,,,,,,
-Linear Algebra,10,,,,,,,,,,,,,,,,,,
-Logical Thinking,1,,,,,,,,,,,,,,,,,,
-Mathematics,11,,,,,,,,,,,,,,,,,,
-Mentoring,1,,,,,,,,,,,,,,,,,,
-Metrics,1,,,,,,,,,,,,,,,,,,
-Microsoft Office Suite,1,,,,,,,,,,,,,,,,,,
-Mobile Devices,1,,,,,,,,,,,,,,,,,,
-Model Building and Deployment,5,,,,,,,,,,,,,,,,,,
-Model Building and Deployment,2,,,,,,,,,,,,,,,,,,
-Model Building and Deployment,4,,,,,,,,,,,,,,,,,,
-Model Building and Deployment,7,,,,,,,,,,,,,,,,,,
-Model Building and Deployment,1,,,,,,,,,,,,,,,,,,
-Natural Language Processing/Machine Learning,8,,,,,,,,,,,,,,,,,,
-Perl,1,,,,,,,,,,,,,,,,,,
-Pig,11,,,,,,,,,,,,,,,,,,
-Predictive modeling,7,,,,,,,,,,,,,,,,,,
-Presentation,1,,,,,,,,,,,,,,,,,,
-Project Management,1,,,,,,,,,,,,,,,,,,
-Reporting,1,,,,,,,,,,,,,,,,,,
-Research,1,,,,,,,,,,,,,,,,,,
-Risk Modeling,1,,,,,,,,,,,,,,,,,,
-SaaS,1,,,,,,,,,,,,,,,,,,
-Scripting Languages,1,,,,,,,,,,,,,,,,,,
-Social Media Mining,8,,,,,,,,,,,,,,,,,,
-Software Engineering,2,,,,,,,,,,,,,,,,,,
-software engineering principles,4,,,,,,,,,,,,,,,,,,
-SQL/NoSQL,8,,,,,,,,,,,,,,,,,,
-Statistics,11,Statistics,,,,,,,,,,,,,,,,,
-Statistical Modeling,1,,,,,,,,,,,,,,,,,,
-Statistics,1,Statistics,,,,,,,,,,,,,,,,,
-Statistics,2,Statistics,,,,,,,,,,,,,,,,,
-Statistics,4,Statistics,,,,,,,,,,,,,,,,,
-Statistics,5,Statistics,,,,,,,,,,,,,,,,,
-Statistics,7,Statistics,,,,,,,,,,,,,,,,,
-Statistics,10,Statistics,,,,,,,,,,,,,,,,,
-Statistics,11,Statistics,,,,,,,,,,,,,,,,,
-Storytelling Skills,1,,,,,,,,,,,,,,,,,,
-Storytelling Skills,2,,,,,,,,,,,,,,,,,,
-Structured Thinking,2,,,,,,,,,,,,,,,,,,
-Supervisory Skills,1,,,,,,,,,,,,,,,,,,
-Tables and Queries,1,,,,,,,,,,,,,,,,,,
-Teamwork,8,,,,,,,,,,,,,,,,,,
-Teamwork,12,,,,,,,,,,,,,,,,,,
-Testing Hypotheses,1,,,,,,,,,,,,,,,,,,
-Unstructured Data,11,,,,,,,,,,,,,,,,,,
-Unstructured Data,12,,,,,,,,,,,,,,,,,,
+Skill,RecommendationID,InJobSkills
+C++,1,C++
+Collaboration,1,Collaboration
+Collaboration,7,Collaboration
+Communication,1,Communication
+Communication,2,Communication
+Communication,3,Communication
+Communication,4,Communication
+Communication,5,Communication
+Communication,6,Communication
+Communication,7,Communication
+Communication,8,Communication
+Communication,11,Communication
+Communication,12,Communication
+Critical Thinking,1,Critical Thinking
+Critical thinking,6,Critical Thinking
+Critical thinking,7,Critical Thinking
+Data analysis,1,Data analysis
+Data Mining,4,Data mining
+Data Mining,1,Data mining
+Data modeling,3,Data modeling
+Data modeling,1,Data modeling
+Data Visualization,1,Data visualization
+Data Visualization,2,Data visualization
+Data Visualization,3,Data visualization
+Data Visualization,5,Data visualization
+Data visualization,7,Data visualization
+Data Visualization,8,Data visualization
+Data Visualization,9,Data visualization
+Data Visualization,11,Data visualization
+Data Wrangling,1,Data wrangling
+Data Wrangling,2,Data wrangling
+Data Wrangling,6,Data wrangling
+Data Wrangling,1,Data wrangling
+Data Wrangling,4,Data wrangling
+Data Wrangling,5,Data wrangling
+Data Wrangling,7,Data wrangling
+Data Wrangling,9,Data wrangling
+Data Wrangling,10,Data wrangling
+Data Wrangling,11,Data wrangling
+Data Wrangling,11,Data wrangling
+Hadoop,1,Hadoop
+Hadoop,11,Hadoop
+Hadoop,12,Hadoop
+Hive,11,Hive
+Java,1,Java
+Java,9,Java
+Machine Learning,1,Machine learning
+Machine Learning,2,Machine learning
+Machine Learning,3,Machine learning
+Machine Learning,4,Machine learning
+Machine Learning,5,Machine learning
+Machine Learning,6,Machine learning
+Machine Learning,7,Machine learning
+Machine Learning,9,Machine learning
+Machine Learning,10,Machine learning
+Machine Learning,11,Machine learning
+Machine Learning,12,Machine learning
+MATLAB,1,MATLAB
+MATLAB,9,MATLAB
+Microsoft Excel,1,Microsoft Excel
+Microsoft Excel,8,Microsoft Excel
+Microsoft Excel,9,Microsoft Excel
+Microsoft Excel,10,Microsoft Excel
+NoSQL,1,NoSQL
+Problem Solving,1,Problem Solving
+Problem Solving,4,Problem Solving
+Problem Solving,5,Problem Solving
+Problem Solving,6,Problem Solving
+Problem Solving,7,Problem Solving
+Programming,2,Programming
+Programming,3,Programming
+Programming,5,Programming
+Programming,7,Programming
+Programming,11,Programming
+Programming,11,Programming
+Python,1,Python
+Python,4,Python
+Python,8,Python
+Python,9,Python
+Python,10,Python
+Python,12,Python
+R,1,R
+R,4,R
+R,9,R
+R,10,R
+R,11,R
+R,12,R
+SAS,1,SAS
+SAS,11,SAS
+Scala,9,Scala
+SQL,1,SQL
+SQL,5,SQL
+SQL,9,SQL
+SQL,10,SQL
+SQL,12,SQL
+Statistics,9,Statistics
+Statistics,1,Statistics
+Statistics,3,Statistics
+Statistics,6,Statistics
+Statistics,8,Statistics
+Tableau,1,Tableau
+TensorFlow,1,TensorFlow
+TensorFlow,9,TensorFlow
+Adaptability,1,
+Algorithms,1,
+Algorithms,1,
+cloud computing,1,
+AmCharts,1,
+Apache Spark,1,
+Apache Spark,11,
+Apache Spark,12,
+AppEngine,1,
+Artificial Intelligence,1,
+Assertiveness,1,
+Big Data,1,
+Big Data,2,
+Big Data,4,
+Big Data,11,
+Business Knowledge,1,
+Business Knowledge,3,
+Business Knowledge,5,
+Business Knowledge,6,
+Business Knowledge,7,
+Business Knowledge,8,
+Business Knowledge,11,
+Business Knowledge,12,
+Calculus,1,
+Calculus,5,
+Calculus,7,
+Calculus,9,
+Calculus,10,
+cloud computing,9,
+cloud computing,10,
+Coding,6,
+CouchDB,1,
+Creativity,1,
+Curiosity,1,
+Curiosity,2,
+Curiosity,3,
+Curiosity,4,
+Curiosity,5,
+curiosity,6,
+Curiosity,7,
+Curiosity,12,
+Customer Service,1,
+Data Intuition,11,
+Data Science Process,5,
+Data Science Tools / Data Tools,1,
+Data Structures and Algorithms,4,
+Data Visualisation,4,
+Data Visualisation,10,
+Data Visualisation,12,
+Database Management,1,
+Database Management,9,
+Database Management,10,
+Decision Making,1,
+Decision Trees,1,
+Deep Learning,2,
+Deep Learning,11,
+DevOps,1,
+DevOps,9,
+Documenting,1,
+Drawing Consensus,1,
+ECL,1,
+"ETL (Extract, Transform, and Load)",4,
+Facilitating Meetings,1,
+Flare,1,
+Google Visualization API,1,
+HBase,1,
+High-Level Math,8,
+Highcharts,1,
+Innovation,1,
+Interpreting Data,1,
+js,1,
+Julia,9,
+Leadership,1,
+Linear Algebra,1,
+Linear Algebra,5,
+Linear Algebra,7,
+Linear Algebra,9,
+Linear Algebra,10,
+Logical Thinking,1,
+Mathematics,11,
+Mentoring,1,
+Metrics,1,
+Microsoft Office Suite,1,
+Mobile Devices,1,
+Model Building and Deployment,5,
+Model Building and Deployment,2,
+Model Building and Deployment,4,
+Model Building and Deployment,7,
+Model Building and Deployment,1,
+Natural Language Processing/Machine Learning,8,
+Perl,1,
+Pig,11,
+Predictive modeling,7,
+Presentation,1,
+Project Management,1,
+Reporting,1,
+Research,1,
+Risk Modeling,1,
+SaaS,1,
+Scripting Languages,1,
+Social Media Mining,8,
+Software Engineering,2,
+software engineering principles,4,
+SQL/NoSQL,8,
+Statistics,11,Statistics
+Statistical Modeling,1,
+Statistics,1,Statistics
+Statistics,2,Statistics
+Statistics,4,Statistics
+Statistics,5,Statistics
+Statistics,7,Statistics
+Statistics,10,Statistics
+Statistics,11,Statistics
+Storytelling Skills,1,
+Storytelling Skills,2,
+Structured Thinking,2,
+Supervisory Skills,1,
+Tables and Queries,1,
+Teamwork,8,
+Teamwork,12,
+Testing Hypotheses,1,
+Unstructured Data,11,
+Unstructured Data,12,
