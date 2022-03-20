@@ -1,0 +1,232 @@
+---
+title: "Project 3"
+output:
+  html_document:
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+The objective of this project was to compile data indicative of current data science skills in demand. We did this by creating multiple tables containing strings from blog posts along with populating data from actual job postings. 
+
+In doing this, we sought to answer three questions:
+
+1. How do the skills vary between the different job posting sites?
+2. How does the skills looked for in job postings compare to the skills recommended in articles and blogs?
+3. Is there any difference in the 3 categories: Languages, Tech Data and Soft Skills
+
+# Step 1: Listing skills based on job postings
+
+Our first main step was creating a table that populated data based on 1) skills in demand from data blogs and 2) job postings with the skills listed. 
+
+```{r include = F}
+library(rvest)
+library(dplyr)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(plotly)
+library(ggthemes)
+library(ggplot2)
+library(stringr)
+```
+
+
+##  Performing Web Scraping to fetch the skills using the node selector
+
+We used the `rvest` package to use a node selector and subset the skills of interest:
+
+```{r}
+# Start by reading a HTML page with read_html():
+skills_page <- read_html("https://brainstation.io/career-guides/data-science-resume-examples#what-skills-should-you-put-on-a-data-science-resume")
+skills_set1<- skills_page %>% html_nodes("ul:nth-child(4)") %>% html_elements("li")  %>% html_text2()
+skills_set2<- skills_page %>% html_nodes("ul:nth-child(6)") %>% html_elements("li")  %>% html_text2()
+```
+
+From here, we can preview the vector:
+```{r}
+writeLines(skills_set1)
+```
+
+The next step we took was trimming extra spaces from the words in `skill_set1` and `skill_set2`.
+
+```{r}
+vector1 = c()
+for (i in 6:19) {
+  vector1[i-5] <- as.character(trimws(skills_set1[i], which = c("both")))
+}
+
+vector2 = c()
+for (i in 3:34) {
+  vector2[i-2] <- as.character(trimws(skills_set2[i], which = c("both")))
+}
+```
+
+Here are the cleaned vectors:
+```{r}
+vector1 %>% writeLines()
+```
+
+```{r}
+vector2 %>% writeLines()
+```
+
+*Soft Skills:*
+We can start by reading a HTML page with `read_html()`:
+```{r}
+softskills_page <- read_html("https://zety.com/blog/data-scientist-resume-example")
+```
+
+From here, we can scrap these using node selector
+```{r}
+
+skills_set3<- softskills_page %>% html_nodes("td:nth-child(1) > p > a") %>% html_text2()
+
+skills_set3[3:9]
+```
+
+As before, we now have a vector of soft skills:
+```{r}
+vector3 = c()
+
+for (i in 3:9) {
+  
+  vector3[i-2] <- as.character(trimws(skills_set3[i], which = c("both")))
+  
+}
+
+vector3
+```
+
+We can now combine the vectors with technical skills and the vectors containing soft skills.
+```{r}
+title_vector <- c(vector1, vector2, vector3)
+```
+
+## Adding the values in the columns
+From there, we manually searched multiple job listing sites and populated tables based on the number of results:
+
+```{r, echo = F}
+indeed_jobs = c()
+# adding jobs to an empty vector 
+
+indeed_jobs = c('46,915','2,660','28,328','2,327',' 41,727','9,444','55,983','75,076','9,240','7,400',
+                '49,922','3,706','72,630','5,368','12,265','85,808','1,578','2,277','102,663','14,354',
+                '3,059','135,162','16,826','19,130','197,041','16,762','17,577','57,397','34,179','22,990',
+                ' 37','9,539','2,472','63,047','868,715','117','7,211','18,860','525','169',
+                '935','305','3,025','5,472','120,397','45','43,238','61,936','721,924','114,820',
+                '316,760','1,135,873','1,278,165')
+```
+
+```{r, echo = F}
+linkedin_jobs = c()
+# adding jobs to an empty vector 
+
+linkedin_jobs = c('580,822','3,329','135,443','216,875','119,686','510,656','53,452','186,554','21,617','112,298',
+                  '98,477','3,452','5,587','60,006','175,906','898,552','315,245','771,041','197,040','812,683',
+                  '867,841','800,863','69,694','29,898','1,196,586','27,913','163,737','263,855','64,198','70,445',
+                  '19','16,685','4,266','156,649','360,852','627','67,961','60,296','638','180',
+                  '1,146','375','14,710','9,081','234,937','38,932','24,555','4,571,013','663,670','45,321',
+                  '543,385','1,915,666','1,056,725')
+```
+
+```{r, echo = F}
+simplyhired_jobs = c()
+# adding jobs to an empty vector 
+
+simplyhired_jobs = c('27,586','1,233','13,702','44,456','37,409','87,187','33,666','34,298','21,562','11,574',
+                     '26,019','2,237','6,353','14,068','61,044','99,354','193,995','40,280','47,118','34,411',
+                     '69,038','63,254','9,906','10,482','104,201','6,411','11,880','31,166','14,219','9,865',
+                     '34','4,243','1,038','32,330','497,140','33','23,610','7,756','345','96',
+                     '630','219','1,391','3,158','66,652','5,255','22,061','41,747','372,740','60,142',
+                     '157,402','548,264','547,690')
+  
+  
+```
+
+```{r, echo = F}
+ziprecruiter_jobs = c()
+# adding jobs to an empty vector 
+
+ziprecruiter_jobs = c('1,685,359','434','623,648','288,970','170,268','2,047,037','261,054','317,549','316,611','116,528',
+                      '111,577','2,220,185','3,460','22,966','20,558','457,959','54,686','291,574','243,188','78,526',
+                      '292,644','202,555','45,434','39,475','269,004','27,009','29,676','130,988','42,417','36,291',
+                      '14','14,633','487','89,157','488,192','13','70,727','17,436','1,508','154',
+                      '110,348','168','213,055','13,278','188,515','17,266','39,603','5,547,167','839,660','145,056',
+                      '355,482','34,357','1,159,558')
+
+```
+
+```{r}
+
+tbl1.siteskills = data.frame(skill_title = title_vector,
+                indeed = indeed_jobs,
+                linkedin = linkedin_jobs,
+                simplyhired = simplyhired_jobs,
+                ziprecruiter = ziprecruiter_jobs
+                )
+head(tbl1.siteskills) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
+```
+
+We'll refer to this as `Table 1` moving forward. We can export this table into a working directory:
+```{r}
+# Get working directory path
+path <- getwd()
+path
+write.csv(tbl1.siteskills, file.path(path, "skills_cleaned_data.csv"))
+```
+
+# Step 2: Integration with Existing Tables
+
+From here, we can join this table with existing data we've scraped:
+
+## Table 2: Skill Categories
+```{r}
+tbl2.skillcat = read.csv('SkillCategories.csv')
+head(tbl2.skillcat) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
+```
+
+## Table 3: Recommended Skills
+```{r}
+tbl3.skillrec = read.csv('RecomendedSkills.csv')
+head(tbl3.skillrec) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
+```
+
+## Table 4: Skill Recommendation Websites
+```{r}
+tbl4.skillsites = read.csv('RecommendationSites.csv')
+head(tbl4.skillsites, 2) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
+```
+
+In total, we have the following tables:
+```{r echo = F}
+
+tbl1.siteskills = read.csv('JobPostingsSkillXref.csv')
+lst.database = list(data.frame(Table1 =  names(tbl1.siteskills)), 
+     data.frame(Table2 =  names(tbl2.skillcat)),
+     data.frame(Table3 =  names(tbl3.skillrec)),
+     data.frame(Table4 =  names(tbl4.skillsites)))
+  
+lst.database %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+```
+
+# Step 3: Data Visualization
+
+We can start visualization by looking at the job demand distribution in `Table 1`. To do this, we'll need to melt the dataset prior to using `ggplot`:
+```{r}
+mlt.tbl1 = pivot_longer(tbl1.siteskills, cols = c("indeed", "linkedin", "simplyhired", "ziprecruiter"), values_to = "count")
+mlt.tbl1 = mlt.tbl1 %>% mutate(count = as.integer(gsub("\\,", "", count)))
+mlt.tbl1.merged = mlt.tbl1 %>% merge(tbl2.skillcat, by = "skill_title", all.x = T)
+
+mlt.tbl1.merged$name = str_to_sentence(mlt.tbl1.merged$name)
+
+plt.sites = ggplot(mlt.tbl1.merged, aes(skill_title, count, fill = factor(skill_category))) + geom_bar(stat = "identity") + facet_wrap(~name, ncol = 1, scales = "free_y") + theme_minimal() + scale_fill_economist() + labs(x = "Skill", y = "Count", fill = "Skill Category") + theme(axis.text.x = element_text(size = 8, angle=90, hjust = 1, vjust = 1), legend.position = "bottom") 
+
+plot(plt.sites)
+```

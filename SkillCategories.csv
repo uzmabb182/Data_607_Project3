@@ -1,0 +1,54 @@
+﻿skill_title,SKILLID,skill_category
+Data analysis,1,Fundamentals
+Data wrangling,2,Fundamentals
+Data modeling,3,Fundamentals
+Statistics,4,Mathematics
+Data visualization,5,Fundamentals
+Programming,6,Fundamentals
+Quantitative analysis,7,Mathematics
+Machine learning,8,Fundamentals
+Machine learning models,9,Fundamentals
+Data mining,10,Fundamentals
+Debugging,11,Fundamentals
+Hypothesis testing,12,Mathematics
+A/B tests,13,Mathematics
+Regression,14,Mathematics
+R,15,Languages
+Python,16,Languages
+C,17,Languages
+C++,18,Languages
+C#,19,Languages
+HTML,20,Languages
+Java,21,Languages
+JavaScript,22,Languages
+PHP,23,Languages
+SAS,24,Languages
+SQL,25,Languages
+Scala,26,Languages
+MATLAB,27,Languages
+SQL Server,28,Database Management
+NoSQL,29,Database Management
+Hadoop,30,Database Management
+OpenRefine,31,Database Management
+TensorFlow,32,Database Management
+Cloudera,33,Database Management
+Tableau,34,Database Management
+Microsoft Excel,35,Software
+Octave,36,Languages
+Spark,37,Data Warehouse
+PowerBI,38,Visualization
+Plotly,39,Visualization
+Bokeh,40,Visualization
+Matplotlib,41,Python Packages
+Seaborn,42,Python Packages
+Keras,43,Python Packages
+Pytorch,44,Python Packages
+AWS,45,Database Management
+Hive,46,Data Warehouse
+Soft Skills,47,Soft Skills
+Communication,48,Soft Skills
+Collaboration,49,Soft Skills
+Creative Thinking,50,Soft Skills
+Critical Thinking,51,Soft Skills
+Problem Solving,52,Soft Skills
+Interpersonal Skills,53,Soft Skills
