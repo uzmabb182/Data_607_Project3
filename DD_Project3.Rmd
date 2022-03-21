@@ -18,7 +18,7 @@ In doing this, we sought to answer three questions:
 
 1. How do the skills vary between the different job posting sites?
 2. How does the skills looked for in job postings compare to the skills recommended in articles and blogs?
-3. Is there any difference in the 3 categories: Languages, Tech Data and Soft Skills
+3. Is there any difference in the 3 categories: Languages, Tech Data and Soft Skills.
 
 # Step 1: Listing skills based on job postings
 
@@ -218,6 +218,8 @@ lst.database %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "stri
 
 # Step 3: Data Visualization
 
+## Job Demand Distribution
+
 We can start visualization by looking at the job demand distribution in `Table 1`. To do this, we'll need to melt the dataset prior to using `ggplot`:
 ```{r}
 mlt.tbl1 = pivot_longer(tbl1.siteskills, cols = c("indeed", "linkedin", "simplyhired", "ziprecruiter"), values_to = "count")
@@ -226,7 +228,54 @@ mlt.tbl1.merged = mlt.tbl1 %>% merge(tbl2.skillcat, by = "skill_title", all.x = 
 
 mlt.tbl1.merged$name = str_to_sentence(mlt.tbl1.merged$name)
 
-plt.sites = ggplot(mlt.tbl1.merged, aes(skill_title, count, fill = factor(skill_category))) + geom_bar(stat = "identity") + facet_wrap(~name, ncol = 1, scales = "free_y") + theme_minimal() + scale_fill_economist() + labs(x = "Skill", y = "Count", fill = "Skill Category") + theme(axis.text.x = element_text(size = 8, angle=90, hjust = 1, vjust = 1), legend.position = "bottom") 
+plt.sites = ggplot(mlt.tbl1.merged, aes(skill_title, count, fill = factor(skill_category))) + geom_bar(stat = "identity") + facet_wrap(~name, ncol = 1, scales = "free_y") + theme_minimal() + scale_fill_economist() + labs(x = "Skill", y = "Count", fill = "Skill Category") + theme(axis.text.x = element_text(size = 8, angle = 90, hjust = 1, vjust = 1), legend.position = "bottom") 
 
-plot(plt.sites)
+ggplotly(plt.sites) #Makes it interactive
+```
+(Put detail about this graph
+soft skill the most prominent)
+
+## Recommended Skills 
+
+Next to categorize the skills in the recommended websites we need to join table 3 and table 2 together, joining on the common skill name. Some skill names are also capitalized which would be counted separately, so we changed the skill name columns in both websites to lower case to avoid this issue. 
+
+```{r}
+#Change the skills column to all lower case
+tbl3.skillrec$Skill <- tolower(tbl3.skillrec$Skill)
+tbl2.skillcat$skill_title <- tolower(tbl2.skillcat$skill_title)
+
+# Join on common skill names, full join or inner?
+skillcat_rec <- tbl3.skillrec %>% inner_join(tbl2.skillcat, by = c( "Skill" = "skill_title"))
+rec <- skillcat_rec %>% group_by(RecommendationID) %>% count(skill_category)
+head(rec)
+```
+
+Next to graph the distribution of skill categories among the 12 chosen websites.
+```{r}
+# WIP Plan to make this interactive as well colors are hard to distinguish
+ggplot(rec, aes(skill_category ,n, fill = skill_category) ) + geom_col() + facet_grid(rows = vars(RecommendationID), scales= "free_y", switch = "y", space = "free_y") + coord_flip() + labs(x = "RecommendationID", y = "Count") + 
+theme(axis.text.x = element_text(size = 8, hjust = 1, vjust = 1), axis.text.y = element_blank(), axis.ticks.y=element_blank())
+
+```
+(WIP: Use this to compare recommended skill categories vs job postings, question #2. Fundamentals seem to be a more popular category than in the job site postings. Need annotatoins)
+
+(Maybe we can get a more detailed look of what each skill is in the category that they are looking for for the most popular categories to give us more analysis. I started a little of it to see if its worth investigating.)
+
+```{r}
+skillcat_rec %>% filter(RecommendationID == 1 | RecommendationID == 9, skill_category == "Fundamentals")
+
+# Data wrangling appears twice for RecommendationID 1, is this an error?
+```
+
+```{r}
+# WIP Need to add color, maybe a different graphical output type. Trying to see common skills between articles
+
+# Fundamentals 
+skillcat_rec %>%
+  filter(RecommendationID == 9 | RecommendationID == 1 & skill_category == "Fundamentals") %>% 
+  ggplot(aes(RecommendationID, Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9))
+```
+
+```{r}
+# WIP categorise skills into the three general terms to potentially answer #3
 ```
