@@ -207,6 +207,7 @@ In total, we have the following tables:
 ```{r echo = F}
 
 tbl1.siteskills = read.csv('JobPostingsSkillXref.csv')
+tbl1.siteskills$`In.Recommended.Skills.` = NULL
 lst.database = list(data.frame(Table1 =  names(tbl1.siteskills)), 
      data.frame(Table2 =  names(tbl2.skillcat)),
      data.frame(Table3 =  names(tbl3.skillrec)),
@@ -216,7 +217,7 @@ lst.database %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "stri
 
 ```
 
-# Step 3: Data Visualization
+# Step 3: Answering Questions
 
 ## Job Demand Distribution
 
@@ -224,7 +225,7 @@ We can start visualization by looking at the job demand distribution in `Table 1
 ```{r}
 mlt.tbl1 = pivot_longer(tbl1.siteskills, cols = c("indeed", "linkedin", "simplyhired", "ziprecruiter"), values_to = "count")
 mlt.tbl1 = mlt.tbl1 %>% mutate(count = as.integer(gsub("\\,", "", count)))
-mlt.tbl1.merged = mlt.tbl1 %>% merge(tbl2.skillcat, by = "skill_title", all.x = T)
+mlt.tbl1.merged = mlt.tbl1 %>% merge(tbl2.skillcat, by = c("skill_title", "SKILLID"), all.x = T)
 
 mlt.tbl1.merged$name = str_to_sentence(mlt.tbl1.merged$name)
 
@@ -232,8 +233,67 @@ plt.sites = ggplot(mlt.tbl1.merged, aes(skill_title, count, fill = factor(skill_
 
 ggplotly(plt.sites) #Makes it interactive
 ```
-(Put detail about this graph
-soft skill the most prominent)
+
+
+This plot is a bit detailed, so we can visualize this distribution in more granular "buckets":
+
+```{r}
+mlt.tbl1.merged$skill_bucket = ifelse(mlt.tbl1.merged$skill_category == "Languages", "Languages", ifelse(mlt.tbl1.merged$skill_category == "Soft Skills", "Soft Skills", "Tech Data"))
+
+plt.sites.aggregated = ggplot(mlt.tbl1.merged, aes(skill_title, count, fill = factor(skill_category))) + geom_bar(stat = "identity") + facet_wrap(~ skill_bucket + name, ncol = 2, scales = "free") + theme_minimal() + scale_fill_economist() + labs(x = "Skill", y = "Count", fill = "Skill Category") + theme(axis.text.x = element_text(size = 8, angle = 90, hjust = 1, vjust = 1), legend.position = "bottom") 
+
+ggplotly(plt.sites.aggregated, width = 800, height = 1500)
+
+```
+
+If we don't want to stratify by job website and visualize an overview instead, it will appear as the following:
+
+```{r message=F, warning = F}
+
+tbl1.per_bucket = mlt.tbl1.merged %>% group_by(skill_title, skill_bucket) %>% summarise(count = sum(count))
+
+plt.bucket = ggplot(tbl1.per_bucket, aes(skill_title, count, fill = factor(skill_bucket))) + geom_bar(stat = "identity") + facet_wrap(~ skill_bucket, ncol = 1, scales = "free") + theme_minimal() + scale_fill_economist() + labs(x = "Skill", y = "Count", fill = "Skill Category") + theme(axis.text.x = element_text(size = 8, angle = 90, hjust = 1, vjust = 1), legend.position = "bottom") 
+
+ggplotly(plt.bucket, width = 800, height = 1500)
+```
+
+As an extra bit, we can run some basic statistical tests across the board to see if any particular skills are listed more often in one website than others. We'll start by running a proportions test and seeing which skillls differ the most across websites:
+
+```{r echo = F}
+tbl1.siteskills = tbl1.siteskills %>% mutate(indeed = as.integer(gsub("\\,", "", indeed)),
+                           linkedin = as.integer(gsub("\\,", "", linkedin)),
+                           simplyhired = as.integer(gsub("\\,", "", simplyhired)),
+                           ziprecruiter = as.integer(gsub("\\,", "", ziprecruiter))) 
+mat.site_skills = tbl1.siteskills %>% select(-c("SKILLID", "skill_title")) %>% data.matrix()
+rownames(mat.site_skills) = tbl1.siteskills$skill_title
+
+
+prop.test.pval = function(x)  { 
+  y = prop.test(x, n = rep(sum(x), length(x))) 
+  x = y$statistic
+  return(x)
+  }
+
+vec.stat = apply(mat.site_skills, 1,  prop.test.pval)
+
+prop.table = as.data.frame(prop.table(mat.site_skills, margin = 1)) %>% mutate(test.statistic = vec.stat) 
+
+prop.table$test.statistic = round(prop.table$test.statistic, 2)
+
+prop.table  %>%  arrange(desc(test.statistic)) %>% head(5)  %>% kable() %>% kable_styling(bootstrap_options = "basic") 
+```
+
+We'll do the same for those that differ the least among websites:
+```{r}
+prop.table  %>%  arrange(desc(test.statistic)) %>% tail(5)  %>% kable() %>% kable_styling(bootstrap_options = "basic") 
+```
+
+### Key observations:
+
+* **Soft skills** were quite consistent throughout job listings. Communication in particular was emphasized across the board, followed by problem solving.
+* With respect to **languages**, job descrptions appeared to emphasize querying languages (such as SQL) over programming languages such as Python and R. However, when excluding SQL, both Python and Javascript appeared in a considerable number of job listings.
+* **Software packages** were different across the board. `Seaborn` and `plotly` had similar distributions across the job sites, but `Matplotlib` was seen more often in ZipRecruiter.
+
 
 ## Recommended Skills 
 
@@ -247,7 +307,7 @@ tbl2.skillcat$skill_title <- tolower(tbl2.skillcat$skill_title)
 # Join on common skill names, full join or inner?
 skillcat_rec <- tbl3.skillrec %>% inner_join(tbl2.skillcat, by = c( "Skill" = "skill_title"))
 rec <- skillcat_rec %>% group_by(RecommendationID) %>% count(skill_category)
-head(rec)
+head(rec) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
 ```
 
 Next to graph the distribution of skill categories among the 12 chosen websites.
