@@ -336,13 +336,6 @@ skillcat_rec %>%
   ggplot(aes(RecommendationID, Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9))
 ```
 
-```{r}
-# WIP categorise skills into the three general terms to potentially answer #3
-<<<<<<< Updated upstream
-```
-=======
-```
-
 ## Differences by Category
 First, we look at those skills that are in both the Job Postings and in the articles/blogs with recommended skills
 ```{r}
