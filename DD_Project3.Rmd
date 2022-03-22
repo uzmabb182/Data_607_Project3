@@ -164,7 +164,6 @@ ziprecruiter_jobs = c('1,685,359','434','623,648','288,970','170,268','2,047,037
 ```
 
 ```{r}
-
 tbl1.siteskills = data.frame(skill_title = title_vector,
                 indeed = indeed_jobs,
                 linkedin = linkedin_jobs,
@@ -292,53 +291,69 @@ prop.table  %>%  arrange(desc(test.statistic)) %>% tail(5)  %>% kable() %>% kabl
 ### Key observations:
 
 * **Soft skills** were quite consistent throughout job listings. Communication in particular was emphasized across the board, followed by problem solving.
-* With respect to **languages**, job descrptions appeared to emphasize querying languages (such as SQL) over programming languages such as Python and R. However, when excluding SQL, both Python and Javascript appeared in a considerable number of job listings.
+* With respect to **languages**, job descriptions appeared to emphasize querying languages (such as SQL) over programming languages such as Python and R. However, when excluding SQL, both Python and Javascript appeared in a considerable number of job listings.
 * **Software packages** were different across the board. `Seaborn` and `plotly` had similar distributions across the job sites, but `Matplotlib` was seen more often in ZipRecruiter.
 
 
 ## Recommended Skills 
 
-Next to categorize the skills in the recommended websites we need to join table 3 and table 2 together, joining on the common skill name. Some skill names are also capitalized which would be counted separately, so we changed the skill name columns in both websites to lower case to avoid this issue. 
+To answer analysis question 2, we need to categorize the skills in the recommended websites. This can be achieved by joining table 3 and table 2 together on the common skill name. Some skill names are also capitalized which would be counted separately, so we changed the skill name columns in both websites to lower case to avoid this issue. 
 
 ```{r}
 #Change the skills column to all lower case
 tbl3.skillrec$Skill <- tolower(tbl3.skillrec$Skill)
 tbl2.skillcat$skill_title <- tolower(tbl2.skillcat$skill_title)
 
-# Join on common skill names, full join or inner?
+# Join on common skill names
 skillcat_rec <- tbl3.skillrec %>% inner_join(tbl2.skillcat, by = c( "Skill" = "skill_title"))
 rec <- skillcat_rec %>% group_by(RecommendationID) %>% count(skill_category)
 head(rec) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
 ```
 
-Next to graph the distribution of skill categories among the 12 chosen websites.
+Next, to graph the distribution of skill categories among the 12 chosen websites.
 ```{r}
 # WIP Plan to make this interactive as well colors are hard to distinguish
-ggplot(rec, aes(skill_category ,n, fill = skill_category) ) + geom_col() + facet_grid(rows = vars(RecommendationID), scales= "free_y", switch = "y", space = "free_y") + coord_flip() + labs(x = "RecommendationID", y = "Count") + 
-theme(axis.text.x = element_text(size = 8, hjust = 1, vjust = 1), axis.text.y = element_blank(), axis.ticks.y=element_blank())
+rec.skillscat <-ggplot(rec, aes(skill_category ,n, fill = skill_category) ) + geom_col() + facet_grid(rows = vars(RecommendationID), scales= "free_y", switch = "y", space = "free_y") + coord_flip() + labs(x = "RecommendationID", y = "Count") + 
+theme(axis.text.x = element_text(size = 8, hjust = 1, vjust = 1), axis.text.y = element_blank(), axis.ticks.y=element_blank(), panel.grid.major = element_blank())
 
+ggplotly(rec.skillscat)
 ```
-(WIP: Use this to compare recommended skill categories vs job postings, question #2. Fundamentals seem to be a more popular category than in the job site postings. Need annotatoins)
+The chart above shows the count for each skill category listed for each of the chosen websites we looked at. Website 1 gave the most recommended skills overall, while 8 had the least. Overall, this chart shows that Fundamentals, Languages, and Soft Skills are the most recommended skill categories across our websites.
 
-(Maybe we can get a more detailed look of what each skill is in the category that they are looking for for the most popular categories to give us more analysis. I started a little of it to see if its worth investigating.)
+To get a more detailed look, we can compare the websites that had the same skill category as their most recommended. 
+### Fundamentals
+For recommendation websites 1, 2, 3, 5, and 9 the most popular skill category is fundamentals. It would be interesting to see what fundamental skills are listed specifically and if there is an overlap. 
 
 ```{r}
-skillcat_rec %>% filter(RecommendationID == 1 | RecommendationID == 9, skill_category == "Fundamentals")
-
-# Data wrangling appears twice for RecommendationID 1, is this an error?
-```
-
-```{r}
-# WIP Need to add color, maybe a different graphical output type. Trying to see common skills between articles
-
 # Fundamentals 
-skillcat_rec %>%
-  filter(RecommendationID == 9 | RecommendationID == 1 & skill_category == "Fundamentals") %>% 
-  ggplot(aes(RecommendationID, Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9))
+fund.rec.skill <-skillcat_rec %>% select(Skill, RecommendationID, skill_category) %>% filter(RecommendationID == 1 | RecommendationID == 11 | RecommendationID == 2 | RecommendationID == 3 | RecommendationID == 5 | RecommendationID == 5, skill_category == "Fundamentals")
+# Data wrangling appears twice for RecommendationID 1, is this an error?
+fund.rec.skill %>% 
+  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank())
 ```
 
-## Differences by Category
-First, we look at those skills that are in both the Job Postings and in the articles/blogs with recommended skills
+### Language
+
+```{r}
+#Language
+lang.rec.skill <-skillcat_rec %>% select(Skill, RecommendationID, skill_category) %>% filter(RecommendationID == 1| RecommendationID == 9 | RecommendationID == 10 | RecommendationID == 12, skill_category == "Languages")
+lang.rec.skill %>% 
+  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank())
+```
+Websites 1, 9, 10, 12 top recommended skill category was languages. For the recommended languages, only three languages appeared in all three websites, SQL, R and python. 
+
+### Soft Skills
+
+```{r}
+#Soft Skill
+soft.rec.skill <-skillcat_rec %>% select(Skill, RecommendationID, skill_category) %>% filter(RecommendationID == 6| RecommendationID == 7)
+soft.rec.skill %>% 
+  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank())
+```
+For websites 6 and 7, the top recommended skill category was Soft Skills. The skills they had in common included, statistics, problem solving, machine learning, critical thinking and communication.
+
+## Differences by Category  
+First, we look at those skills that are in both the Job Postings and in the articles/blogs with recommended skills.
 ```{r}
 color = c("#008080", "#428bca", "#d2afff", "#dab600", "#979aaa")
 mlt.tbl1.merged$skill_title <- tolower(mlt.tbl1.merged$skill_title)
@@ -376,7 +391,7 @@ mlt.tbl1.merged %>%
 
 ```
 
-Next, we look at those skills that are in the Job Postings BUT NOT in the articles/blogs with recommended skills
+Next, we look at those skills that are in the Job Postings BUT NOT in the articles/blogs with recommended skills.
 ```{r}
 color2 = c("#428bca","#d2afff","#dab600","#979aaa","#008080")
 
