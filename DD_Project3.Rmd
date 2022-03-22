@@ -341,12 +341,10 @@ skillcat_rec %>%
 First, we look at those skills that are in both the Job Postings and in the articles/blogs with recommended skills
 ```{r}
 color = c("#008080", "#428bca", "#d2afff", "#dab600", "#979aaa")
+mlt.tbl1.merged$skill_title <- tolower(mlt.tbl1.merged$skill_title)
+mlt.tbl1.merged$InRecSkills <- mlt.tbl1.merged$skill_title %in% tbl3.skillrec$Skill
 
 mlt.tbl1.merged %>% 
-#change the blanks to NA 
-  mutate(In.Recommended.Skills.=
-           ifelse(In.Recommended.Skills.=="", 
-                  NA, In.Recommended.Skills.)) %>%
   mutate(skill_category = 
            ifelse(skill_category =="Software" |
                     skill_category =="Database Management" |
@@ -355,7 +353,7 @@ mlt.tbl1.merged %>%
                   "Fundamentals", skill_category)) %>%
 #filter out NAs
 #now have job posting skills that were also in recommendations
-  filter(!is.na(In.Recommended.Skills.)) %>%
+  filter(InRecSkills) %>%
   treemap (index=c("skill_category","skill_title"),
            vSize = "count",
            type="index",
@@ -377,7 +375,6 @@ mlt.tbl1.merged %>%
 
 
 ```
-<I cannot get the Title to show on the above>
 
 Next, we look at those skills that are in the Job Postings BUT NOT in the articles/blogs with recommended skills
 ```{r}
@@ -385,10 +382,6 @@ color2 = c("#428bca","#d2afff","#dab600","#979aaa","#008080")
 
 #which category has skills in job postings and in recomm
 mlt.tbl1.merged %>% 
-#change the blanks to NA 
-  mutate(In.Recommended.Skills.=
-           ifelse(In.Recommended.Skills.=="", 
-                  NA, In.Recommended.Skills.)) %>%
   mutate(skill_category = 
            ifelse(skill_category =="Software" |
                     skill_category =="Database Management" |
@@ -402,7 +395,7 @@ mlt.tbl1.merged %>%
                   "Languages", skill_category)) %>%
 #filter to keep only NAs
 #now have job posting skills that were NOT in recommendations
-  filter(is.na(In.Recommended.Skills.)) %>%
+  filter(!InRecSkills) %>%
   treemap (index=c("skill_category","skill_title"),
            vSize = "count",
            type="index",
