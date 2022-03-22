@@ -293,6 +293,10 @@ prop.table  %>%  arrange(desc(test.statistic)) %>% tail(5)  %>% kable() %>% kabl
 * **Soft skills** were quite consistent throughout job listings. Communication in particular was emphasized across the board, followed by problem solving.
 * With respect to **languages**, job descrptions appeared to emphasize querying languages (such as SQL) over programming languages such as Python and R. However, when excluding SQL, both Python and Javascript appeared in a considerable number of job listings.
 * **Software packages** were different across the board. `Seaborn` and `plotly` had similar distributions across the job sites, but `Matplotlib` was seen more often in ZipRecruiter.
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 
 ## Recommended Skills 
@@ -338,4 +342,106 @@ skillcat_rec %>%
 
 ```{r}
 # WIP categorise skills into the three general terms to potentially answer #3
+<<<<<<< Updated upstream
 ```
+=======
+```
+
+## Differences by Category
+First, we look at those skills that are in both the Job Postings and in the articles/blogs with recommended skills
+```{r}
+color = c("#008080", "#428bca", "#d2afff", "#dab600", "#979aaa")
+
+mlt.tbl1.merged %>% 
+#change the blanks to NA 
+  mutate(In.Recommended.Skills.=
+           ifelse(In.Recommended.Skills.=="", 
+                  NA, In.Recommended.Skills.)) %>%
+  mutate(skill_category = 
+           ifelse(skill_category =="Software" |
+                    skill_category =="Database Management" |
+                    skill_category == "Fundamentals" |
+                    skill_category == "Mathematics", 
+                  "Fundamentals", skill_category)) %>%
+#filter out NAs
+#now have job posting skills that were also in recommendations
+  filter(!is.na(In.Recommended.Skills.)) %>%
+  treemap (index=c("skill_category","skill_title"),
+           vSize = "count",
+           type="index",
+               fontsize.labels=c(15,12),                
+    fontcolor.labels=c("white","blue"),
+    fontface.labels=c(2,1),                 
+    bg.labels=c("transparent"),              
+    align.labels=list(
+        c("center", "top"), 
+        c("right", "bottom")),                                
+    overlap.labels=0.5,                   
+    inflate.labels=F,
+  border.col=c("black","white"),  
+    border.lwds=c(7,2),
+  palette = color,
+  title="Skills by Category in Both", 
+    fontsize.title=10
+  )
+
+
+```
+<I cannot get the Title to show on the above>
+
+Next, we look at those skills that are in the Job Postings BUT NOT in the articles/blogs with recommended skills
+```{r}
+color2 = c("#428bca","#d2afff","#dab600","#979aaa","#008080")
+
+#which category has skills in job postings and in recomm
+mlt.tbl1.merged %>% 
+#change the blanks to NA 
+  mutate(In.Recommended.Skills.=
+           ifelse(In.Recommended.Skills.=="", 
+                  NA, In.Recommended.Skills.)) %>%
+  mutate(skill_category = 
+           ifelse(skill_category =="Software" |
+                    skill_category =="Database Management" |
+                    skill_category == "Fundamentals" |
+                    skill_category == "Mathematics" |
+                    skill_category =="Data Warehouse" |
+                    skill_category =="Visualization",
+                  "Fundamentals", skill_category)) %>%
+  mutate(skill_category = 
+           ifelse(skill_category =="Python Packages",
+                  "Languages", skill_category)) %>%
+#filter to keep only NAs
+#now have job posting skills that were NOT in recommendations
+  filter(is.na(In.Recommended.Skills.)) %>%
+  treemap (index=c("skill_category","skill_title"),
+           vSize = "count",
+           type="index",
+               fontsize.labels=c(15,12),                
+    fontcolor.labels=c("white","blue"),
+    fontface.labels=c(2,1),                 
+    bg.labels=c("transparent"),              
+    align.labels=list(
+        c("center", "top"), 
+        c("right", "bottom")),                                
+    overlap.labels=0.5,                   
+    inflate.labels=F,
+  border.col=c("black","white"),  
+    border.lwds=c(7,2),
+  palette = color2,
+  title="Skills by Category in Posting only", 
+    fontsize.title=10,
+  )
+
+
+```
+
+## What the Data Sci Skill Articles Got Right (and didn't) 
+There was a good amount of overlap in the skills for Data Science recommended by articles and the job postings:    
+
+The largest group in this case is the Soft Skills, specifically, Communication, Problem Solving, Collaboration and Critical Thinking.  After that came Fundamentals, with skills like Programming, Data Analysis and Excel (the top 3 in this category).  The smallest group here was Languages, with SQL, Python, Java and C++ as the top 4. 
+
+When we look at the skills the articles MISSED recommending, we see that Fundamentals is just slightly bigger than Soft Skills, and Languages is just a bit smaller.  Top skills by categories that were MISSED by the articles are:    
+Fundamentals: Hypothesis Testing    
+Soft Skills: Interpersonal Skills    
+Languages: JavaScript, HTML, C# and C
+>>>>>>> Stashed changes
