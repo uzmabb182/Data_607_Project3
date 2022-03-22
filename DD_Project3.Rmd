@@ -293,7 +293,10 @@ prop.table  %>%  arrange(desc(test.statistic)) %>% tail(5)  %>% kable() %>% kabl
 * **Soft skills** were quite consistent throughout job listings. Communication in particular was emphasized across the board, followed by problem solving.
 * With respect to **languages**, job descrptions appeared to emphasize querying languages (such as SQL) over programming languages such as Python and R. However, when excluding SQL, both Python and Javascript appeared in a considerable number of job listings.
 * **Software packages** were different across the board. `Seaborn` and `plotly` had similar distributions across the job sites, but `Matplotlib` was seen more often in ZipRecruiter.
+<<<<<<< Updated upstream
+=======
 
+>>>>>>> Stashed changes
 
 
 ## Recommended Skills 
@@ -337,6 +340,12 @@ skillcat_rec %>%
   ggplot(aes(RecommendationID, Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9))
 ```
 
+```{r}
+# WIP categorise skills into the three general terms to potentially answer #3
+<<<<<<< Updated upstream
+```
+=======
+```
 
 ## Differences by Category
 First, we look at those skills that are in both the Job Postings and in the articles/blogs with recommended skills
@@ -435,4 +444,4 @@ When we look at the skills the articles MISSED recommending, we see that Fundame
 Fundamentals: Hypothesis Testing    
 Soft Skills: Interpersonal Skills    
 Languages: JavaScript, HTML, C# and C
-
+>>>>>>> Stashed changes
