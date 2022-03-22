@@ -18,7 +18,7 @@ In doing this, we sought to answer three questions:
 
 1. How do the skills vary between the different job posting sites?
 2. How does the skills looked for in job postings compare to the skills recommended in articles and blogs?
-3. Is there any difference in the 3 categories: Languages, Tech Data and Soft Skills.
+3. Is there any difference in the 3 categories: Languages, Fundamentals and Soft Skills.
 
 # Step 1: Listing skills based on job postings
 
