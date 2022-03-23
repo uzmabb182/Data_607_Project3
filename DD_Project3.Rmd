@@ -302,7 +302,7 @@ prop.table  %>%  arrange(desc(test.statistic)) %>% tail(5)  %>% kable() %>% kabl
 
 ## Recommended Skills 
 
-To answer analysis question 2, we need to categorize the skills in the recommended websites. This can be achieved by joining table 3 and table 2 together on the common skill name. Some skill names are also capitalized which would be counted separately, so we changed the skill name columns in both websites to lower case to avoid this issue. 
+To answer analysis question 2, we need to categorize the skills in the recommendation websites. This can be achieved by joining table 3 and table 2 together on the common skill name. Some skill names are also capitalized which would be counted separately, so we changed the skill name columns in both websites to lower case to avoid this issue. 
 
 ```{r}
 #Change the skills column to all lower case
@@ -439,13 +439,22 @@ mlt.tbl1.merged %>%
 
 ```
 
-## What the Data Sci Skill Articles Got Right (and didn't) 
-There was a good amount of overlap in the skills for Data Science recommended by articles and the job postings:    
+# Conclusion
+## What the Data Sci Skills Articles Got Right (and didn't) 
+There was a good amount of overlap in the skills for Data Science recommended by articles and the also in job postings:    
 
-The largest group in this case is the Soft Skills, specifically, Communication, Problem Solving, Collaboration and Critical Thinking.  After that came Fundamentals, with skills like Programming, Data Analysis and Excel (the top 3 in this category).  The smallest group here was Languages, with SQL, Python, Java and C++ as the top 4. 
+The largest group in this case is the Soft Skills, specifically, Communication, Problem Solving, Collaboration and Critical Thinking.  Communication and Problem Solving were also the soft skills mentioned most consistently in job posting accross all the job sites.  Those two (Communication and Problem Solving), along with Critical Thinking, were also common in those Skill Recommendation articles that mentioned soft skills.      
+
+After that came Fundamentals, with skills like Programming, Data Analysis and Excel (the top 3 in this category).  These were much more varied in the job postings, and may be specific to a particular industry or driven by what hiring companies are already using.  
+
+The smallest group of skills mentioned in both job postings and recommendation sites was Languages, with SQL, Python, Java and C++ as the top 4.  SQL was the top Language seen in the job postings, with Python and Java(script) also seen frequently.  The recommedations added R to this list.   
 
 When we look at the skills the articles MISSED recommending, we see that Fundamentals is just slightly bigger than Soft Skills, and Languages is just a bit smaller.  Top skills by categories that were MISSED by the articles are:    
 Fundamentals: Hypothesis Testing    
-Soft Skills: Interpersonal Skills    
+Soft Skills: Interpersonal Skills (which may be just a broader catch all for some of the other skills already mentioned)    
 Languages: JavaScript, HTML, C# and C
+
+Given this, if you are going to write about skills needed in this field - we suggest taking a closer look at skills in current job postings to make sure you cover the bases effectively. 
+
+If you are a Data Scientist who is job hunting, you would likely benefit from emphisising a balance between hard and soft skills.  On the soft skill side, Communication and Problem Solving seem pretty universally desired. In Languages, SQL is clearly a desired skill, with Python, Java/JavaScript HTML and C#/C as the next tier.  There was more variety on the Fundimental skills, and here we recommend looking more specifically at the industry or organization you are targeting in your search.     
 
