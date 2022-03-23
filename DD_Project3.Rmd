@@ -1,5 +1,10 @@
 ---
 title: "Project 3"
+author: 
+ - Mubashira Qari
+ - Deepika Dilip
+ - Diana Plunkett
+ - Moiya Josephs
 output:
   html_document:
     theme: spacelab
@@ -187,26 +192,26 @@ From here, we can join this table with existing data we've scraped:
 
 ## Table 2: Skill Categories
 ```{r}
-tbl2.skillcat = read.csv('SkillCategories.csv')
+tbl2.skillcat = read.csv('https://raw.githubusercontent.com/uzmabb182/Data_607_Project3/main/SkillCategories.csv')
 head(tbl2.skillcat) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
 ```
 
 ## Table 3: Recommended Skills
 ```{r}
-tbl3.skillrec = read.csv('RecomendedSkills.csv')
+tbl3.skillrec = read.csv('https://raw.githubusercontent.com/uzmabb182/Data_607_Project3/main/RecomendedSkills.csv')
 head(tbl3.skillrec) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
 ```
 
 ## Table 4: Skill Recommendation Websites
 ```{r}
-tbl4.skillsites = read.csv('RecommendationSites.csv')
+tbl4.skillsites = read.csv('https://raw.githubusercontent.com/uzmabb182/Data_607_Project3/main/RecommendationSites.csv')
 head(tbl4.skillsites, 2) %>% kable() %>% kableExtra::kable_styling(bootstrap_options = "basic")
 ```
 
 In total, we have the following tables:
 ```{r echo = F}
 
-tbl1.siteskills = read.csv('JobPostingsSkillXref.csv')
+tbl1.siteskills = read.csv('https://raw.githubusercontent.com/uzmabb182/Data_607_Project3/main/JobPostingsSkillXref.csv')
 tbl1.siteskills$`In.Recommended.Skills.` = NULL
 lst.database = list(data.frame(Table1 =  names(tbl1.siteskills)), 
      data.frame(Table2 =  names(tbl2.skillcat)),
@@ -321,7 +326,8 @@ ggplotly(rec.skillscat)
 The chart above shows the count for each skill category listed for each of the chosen websites we looked at. Website 1 gave the most recommended skills overall, while 8 had the least. Overall, this chart shows that Fundamentals, Languages, and Soft Skills are the most recommended skill categories across our websites.
 
 To get a more detailed look, we can compare the websites that had the same skill category as their most recommended. 
-### Fundamentals
+### Fundamentals  
+
 For recommendation websites 1, 2, 3, 5, and 9 the most popular skill category is fundamentals. It would be interesting to see what fundamental skills are listed specifically and if there is an overlap. 
 
 ```{r}
