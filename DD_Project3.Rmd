@@ -463,5 +463,5 @@ Languages: JavaScript, HTML, C# and C
 
 Given this, if you are going to write about skills needed in this field - we suggest taking a closer look at skills in current job postings to make sure you cover the bases effectively. 
 
-If you are a Data Scientist who is job hunting, you would likely benefit from emphisising a balance between hard and soft skills.  On the soft skill side, Communication and Problem Solving seem pretty universally desired. In Languages, SQL is clearly a desired skill, with Python, Java/JavaScript HTML and C#/C as the next tier.  There was more variety on the Fundimental skills, and here we recommend looking more specifically at the industry or organization you are targeting in your search.     
+If you are a Data Scientist who is job hunting, you would likely benefit from emphasizing a balance between hard and soft skills.  On the soft skill side, Communication and Problem Solving seem pretty universally desired. In Languages, SQL is clearly a desired skill, with Python, Java/JavaScript HTML and C#/C as the next tier.  There was more variety on the Fundamental skills, and here we recommend looking more specifically at the industry or organization you are targeting in your search.     
 
