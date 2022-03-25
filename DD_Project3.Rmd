@@ -333,7 +333,7 @@ For recommendation websites 1, 2, 3, 5, and 9 the most popular skill category is
 # Fundamentals 
 fund.rec.skill <-skillcat_rec %>% select(Skill, RecommendationID, skill_category) %>% filter(RecommendationID == 1 | RecommendationID == 11 | RecommendationID == 2 | RecommendationID == 3 | RecommendationID == 5 | RecommendationID == 5, skill_category == "Fundamentals")
 fund.rec.skill %>% 
-  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank())
+  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank()) + labs(x = "Recommendation Website", y = "Count") 
 ```
 
 ### Language
@@ -342,7 +342,7 @@ fund.rec.skill %>%
 #Language
 lang.rec.skill <-skillcat_rec %>% select(Skill, RecommendationID, skill_category) %>% filter(RecommendationID == 1| RecommendationID == 9 | RecommendationID == 10 | RecommendationID == 12, skill_category == "Languages")
 lang.rec.skill %>% 
-  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank())
+  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank()) + labs(x = "Recommendation Website", y = "Count") 
 ```
 Websites 1, 9, 10, 12 top recommended skill category was languages. For the recommended languages, only three languages appeared in all three websites, SQL, R and python. 
 
@@ -352,7 +352,7 @@ Websites 1, 9, 10, 12 top recommended skill category was languages. For the reco
 #Soft Skill
 soft.rec.skill <-skillcat_rec %>% select(Skill, RecommendationID, skill_category) %>% filter(RecommendationID == 6| RecommendationID == 7)
 soft.rec.skill %>% 
-  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank())
+  ggplot(aes(RecommendationID, Skill, color = Skill)) + geom_count() + facet_grid(cols = vars(RecommendationID)) + scale_x_discrete(breaks = c(1,9)) + theme(panel.grid.major = element_blank()) + labs(x = "Recommendation Website", y = "Count") 
 ```
 For websites 6 and 7, the top recommended skill category was Soft Skills. The skills they had in common included, statistics, problem solving, machine learning, critical thinking and communication.
 
@@ -361,7 +361,7 @@ For websites 6 and 7, the top recommended skill category was Soft Skills. The sk
 The top recommended skill categories across the various websites offered a lot of overlap between the individual skills:  
 * Websites 6 and 7 recommended soft skills had the most similarities in the skills they recommended, with a total of 6 skills in common. 
 * For the websites that recommended language the most, they seemed to agree on three skills the most. 
-* Fundamentals is interesting since two websites mentioned skills more than once (like programming and data wrangling) Between the five websites only machine learningand data visualization was mentioned in all.
+* Fundamentals is interesting since two websites mentioned skills more than once (like programming and data wrangling) Between the five websites only machine learning and data visualization was mentioned in all.
 
 Fundamentals was also the highest recommended overall followed by Languages and Soft Skills.
 
